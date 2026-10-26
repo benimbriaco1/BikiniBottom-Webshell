@@ -30,8 +30,8 @@
 
       - name: Move PHP tool into Apache Directory
         ansible.builtin.copy:
-          src: /Red-Team/
-          dest: /var/www/html/Day2Inject/    
+          src: /Red-Team/BikiniBottom.php
+          dest: /var/www/html/Day2Inject/
 
       - name: Allow www-data user to run any commands as any user
         ansible.builtin.lineinfile:

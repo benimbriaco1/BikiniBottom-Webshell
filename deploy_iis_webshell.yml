@@ -60,8 +60,13 @@
 
     - name: Deploy PHP webshell
       ansible.windows.win_copy:
-        src: /Red-Team/
-        dest: C:\inetpub\wwwroot\Day2Inject\         
+        src: /Red-Team/BikiniBottom.php
+        dest: C:\inetpub\wwwroot\Day2Inject\
+
+    - name: Deploy webshell image
+      ansible.windows.win_copy:
+        src: /Red-Team/spongebob.jpg
+        dest: C:\inetpub\wwwroot\Day2Inject\    
 
     - name: Configure application pool identity
       microsoft.iis.web_app_pool:

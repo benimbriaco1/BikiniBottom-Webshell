@@ -69,9 +69,14 @@ And you should have remote command injection on the targeted linux hosts now, by
 
 <img width="558" height="440" alt="image" src="https://github.com/user-attachments/assets/1af34a9b-d5f8-4aae-9e7f-bd9a55dc3011" />
 
+### Manual Additions
 
+Some ideas for adjustments that can be done manually:
 
-
+- adding more ports to /etc/apache2/ports.conf
+- changing the windows site to use different ports than port 80 
+- configuring BikiniBottom.php to be a standalone site in IIS, that way can move Day2Inject directory elsewhere (not in wwwroot)
+  
 
 
 

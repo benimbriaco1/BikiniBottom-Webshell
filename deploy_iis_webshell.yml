@@ -56,17 +56,17 @@
     - name: Create directory to hold webshell
       ansible.windows.win_powershell:
         script: |
-          New-Item -Path 'C:\inetpub\wwwroot\Day2Inject' -ItemType Directory -Force | Out-Null
+          New-Item -Path 'C:\inetpub\wwwroot\ImageContainer' -ItemType Directory -Force | Out-Null
 
     - name: Deploy PHP webshell
       ansible.windows.win_copy:
         src: /Red-Team/BikiniBottom.php
-        dest: C:\inetpub\wwwroot\Day2Inject\
+        dest: C:\inetpub\wwwroot\ImageContainer\
 
     - name: Deploy webshell image
       ansible.windows.win_copy:
         src: /Red-Team/spongebob.jpg
-        dest: C:\inetpub\wwwroot\Day2Inject\    
+        dest: C:\inetpub\wwwroot\ImageContainer\    
 
     - name: Configure application pool identity
       microsoft.iis.web_app_pool:

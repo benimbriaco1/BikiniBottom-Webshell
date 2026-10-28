@@ -55,10 +55,11 @@ On the Linux target host, in order to to simulate the functionality of my tool, 
 
 **Note**: This is just for demonstration purposes. During the competition there will already be admin accounts deployed on the boxes to use.
 
-If not installed yet, SSH server needs to be downloaded to the target Linux hosts so that Ansible can work on those hosts. Can be done via:
+If not installed yet, SSH server needs to be downloaded to the target Linux hosts so that Ansible can work on those hosts. Can be done via:  
 `sudo apt update`  
 `sudo apt install openssh-server -y`   
-^ install package maintainers version
+^ install package maintainers version.    
+`sudo apt install sshpass`
 
 Next, you have to SSH into the box with any user to add the host’s public key to the controller’s known_hosts file (could do via scp too). Example:
 `ssh spongebob@<linux-ip>`  

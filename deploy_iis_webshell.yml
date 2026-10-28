@@ -74,3 +74,24 @@
         state: started
         attributes:
           processModel.identityType: LocalSystem
+
+    - name: Configure Default Web Site on port 8085
+      microsoft.iis.website:
+        name: Default Web Site
+        state: started
+        bindings:
+          add:
+            - ip: "*"
+              port: 8085
+              protocol: http
+
+    - name: Allow inbound TCP port 8085
+      ansible.windows.win_powershell:
+        script: |
+          New-NetFirewallRule `
+            -DisplayName "IIS HTTP Port 8085" `
+            -Direction Inbound `
+            -Protocol TCP `
+            -LocalPort 8085 `
+            -Action Allow `
+            -ErrorAction SilentlyContinue

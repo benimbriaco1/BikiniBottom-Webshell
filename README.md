@@ -5,16 +5,17 @@
 ## Overview of functionality:
 
 🔵 On Windows, my tool + Ansible:
-  - Turns off the Windows Firewall
   - Installs IIS Web Server onto the target host(s)
   - Installs PHP and sets up necessary IIS configuration via FastCGI, Module Mappings, and Handlers
-  - Copies my PHP web shell script into a fake "Day2Inject" folder in the webroot directory so that it can be accessed elsewhere via browser
+  - Copies my PHP web shell script into a fake "ImageContainer" folder in the webroot directory so that it can be accessed elsewhere via browser 
   - Configures the application pool identity to be Localsystem
+  - Configures my site to run over port 8085 or 80
+  - Opens port 8085 in firewall
 
 🟠 On Linux, my tool + Ansible:
   - Opens port 80 if UFW is being used
   - Installs Apache and PHP onto the host(s)
-  - Creates a fake "Day2Inject" folder in the /var/www/html/ directory
+  - Creates a fake "apache-website" folder in the /var/www/html/ directory
   - Copies my PHP web shell script into the fake directory so it can be accessed elsewhere via browser
   - Runs a command which allows www-data to run any command as any user without supplying a password
 
@@ -42,9 +43,9 @@ And now with a proper inventory file, you can deploy the web shell to Windows wi
 
 `ansible-playbook -i win-inventory.ini deploy_iis_webshell.yml`
 
-If successful, you can navigate to `http://<host-ip>/Day2Inject/BikiniBottom.php` on the web browser of a host which can reach the web server running on the victim host (same network). The result should be remote command injection on the targeted host via the web shell:  
+If successful, you can navigate to `http://<host-ip>:(80 / 8085)/ImageContainer/BikiniBottom.php` on the web browser of a host which can reach the web server running on the victim host (same network). The result should be remote command injection on the targeted host via the web shell:  
 <img width="588" height="440" alt="image" src="https://github.com/user-attachments/assets/c6157a0e-e685-40da-aab2-6a998ba73fdd" />   
-**Note**: this example uses localhost for demonstration purposes but for competition would use the IP of a Blue Team Window's box
+**Note**: this example uses localhost for demonstration purposes but for competition would use the IP of a Blue Team Window's box. It also uses a previous directory location which has been updated
 
 ## 🟠 Linux
 
@@ -65,7 +66,7 @@ Next, you have to SSH into the box with any user to add the host’s public key 
 Then you can deploy the web shell via:
 `ansible-playbook -i linux-inventory.ini deploy_apache_webshell.yml`  
 
-And you should have remote command injection on the targeted linux hosts now, by navigating to `http://<host-ip>/Day2Inject/BikiniBottom.php`:  
+And you should have remote command injection on the targeted linux hosts now, by navigating to `http://<host-ip>/apache-website/BikiniBottom.php`:  
 
 <img width="558" height="440" alt="image" src="https://github.com/user-attachments/assets/1af34a9b-d5f8-4aae-9e7f-bd9a55dc3011" />
 

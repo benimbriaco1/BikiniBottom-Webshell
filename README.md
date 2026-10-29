@@ -22,7 +22,9 @@
 # Usage Instructions
 These instructions walk through how to use my tool, starting with a fresh install of Windows Server 2019 and Ubuntu 24.04 LTS, and a Linux Ansible Controller
 
-On the Ansible controller host, 2 commands have to be run to ensure full functionality:  
+On the Ansible controller host, 4 commands have to be run to ensure full functionality:  
+`sudo apt update`      
+`sudo apt install ansible`    
 `ansible-galaxy collection install microsoft.iis`  
 `sudo apt install sshpass`
 

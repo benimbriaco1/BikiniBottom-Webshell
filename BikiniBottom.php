@@ -95,7 +95,7 @@
     below. It also displays the below text in the heading
     -->
     <h2 onclick="showCommandBox()">
-        We hope you are enjoying the competition! 
+        Welcome to Bikini Bottom! 
     </h2>
     <!-- 
     This section creates a div container which uses the HTTP POST method to send user data, stored as "command" to the web server

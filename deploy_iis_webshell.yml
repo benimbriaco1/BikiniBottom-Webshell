@@ -60,12 +60,12 @@
 
     - name: Deploy PHP webshell
       ansible.windows.win_copy:
-        src: /Red-Team/BikiniBottom.php
+        src: /BikiniBottom-Webshell/BikiniBottom.php
         dest: C:\inetpub\wwwroot\ImageContainer\
 
     - name: Deploy webshell image
       ansible.windows.win_copy:
-        src: /Red-Team/spongebob.jpg
+        src: /BikiniBottom-Webshell/spongebob.jpg
         dest: C:\inetpub\wwwroot\ImageContainer\    
 
     - name: Configure application pool identity

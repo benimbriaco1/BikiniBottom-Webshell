@@ -33,7 +33,7 @@
           src: /BikiniBottom-Webshell/BikiniBottom.php
           dest: /var/www/html/.apache-site/
 
-       - name: Move image into Apache Directory
+      - name: Move image into Apache Directory
         ansible.builtin.copy:
           src: /BikiniBottom-Webshell/spongebob.jpg
           dest: /var/www/html/.apache-site/
